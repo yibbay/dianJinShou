@@ -7,6 +7,8 @@ module.exports = {
 	entry:'./js/app.js',
 	//2.配置输入参数 输出 最终被webpack 处理合并后的代码
 	
+	//有其它方法添加依赖库，具体使用查看相关文档
+	
 	output:{
 		path:'./app',//输出路径，
 		filename:'main.min.js'//输出名字

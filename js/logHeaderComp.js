@@ -6,13 +6,21 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 var Login = require('./loginComp');
+var Regaster = require('./regasterComp').Regaster;
+var RegasterItem = require('./regasterComp').RegasterItem;
+
 
 var LogHeaderComp = React.createClass({
     handleClick:function(e){
         //console.log(e.target.id)
-       ReactDOM.unmountComponentAtNode(document.body);
+       //ReactDOM.unmountComponentAtNode(document.body);
         if(e.target.id==='login'){
-            ReactDOM.render(<Login/>,document.body);
+            console.log(document.querySelector('#body'));
+            ReactDOM.render(<Login/>,document.querySelector('#body'));
+        }
+        if(e.target.id==='regaster'){
+            ReactDOM.render(<Regaster name="注册"/>,document.querySelector('#body'));
+            ReactDOM.render(<RegasterItem/>,document.querySelector('#container'))
         }
     },
     render:function(){

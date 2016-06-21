@@ -6,10 +6,12 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 
 
+
+
 var Layout = require('./layoutComp.js');
 
 
-ReactDOM.render(<Layout/>,document.body);
+ReactDOM.render(<Layout/>,document.querySelector('#body'));
 
 //在入口引入子组件是OK的
 

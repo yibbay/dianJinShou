@@ -3,8 +3,25 @@
  */
 
 var React = require('react');
+var ReactDOM = require('react-dom');
+var $ = require('jquery');
+var RegasterHeader  = require('./regasterComp').Regaster;//提取注册页的头部
+//var AdShow = require('./adShowComp');//广告页展示模块
+var AdList = require('./adListComp');//广告清单列表
 
 var HomeFooter = React.createClass({
+    earnClick:function(){//点击进入广告清单列表
+        ReactDOM.render(<RegasterHeader name="分享赚钱"/>,document.querySelector('#body'));
+        $.ajax({
+           url:'./json/adList.json',
+            type:'get',
+            success:function(data){
+                ReactDOM.render(<AdList data={data.result}/>,document.querySelector('#container'));
+                //console.log(data.result)
+            }
+        });
+
+    },
     render:function(){
         var css =this.css;
         return (
@@ -15,7 +32,7 @@ var HomeFooter = React.createClass({
                   </p>
                   <p>首页</p>
               </div>
-              <div style={css.item}>
+              <div style={css.item} onClick={this.earnClick}>
                   <p>
                       <img style={css.img} src="images/qianbao.png" alt=""/>
                   </p>

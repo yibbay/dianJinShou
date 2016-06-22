@@ -1,0 +1,85 @@
+{
+  "success": 1,
+  "result": [
+    {
+      "adImgUrl": "https://img.alicdn.com/bao/uploaded///img.alicdn.com/bao/uploaded/i4/TB1vGO5IFXXXXb4XXXXXXXXXXXX_!!0-item_pic.jpg_160x160q90.jpg",
+      "adName": "广告名称1",
+      "process": "81",
+      "target": 10000,
+      "timeRemianing": 10,
+      "onceMoney": 0.5
+    },
+    {
+      "adImgUrl": "https://img.alicdn.com/bao/uploaded///img.alicdn.com/bao/uploaded/i4/TB1vGO5IFXXXXb4XXXXXXXXXXXX_!!0-item_pic.jpg_160x160q90.jpg",
+      "adName": "广告名称2",
+      "process": "82",
+      "target": 10000,
+      "timeRemianing": 10,
+      "onceMoney": 0.5
+    },
+    {
+      "adImgUrl": "https://img.alicdn.com/bao/uploaded///img.alicdn.com/bao/uploaded/i4/TB1vGO5IFXXXXb4XXXXXXXXXXXX_!!0-item_pic.jpg_160x160q90.jpg",
+      "adName": "广告名称3",
+      "process": "83",
+      "target": 10000,
+      "timeRemianing": 10,
+      "onceMoney": 0.5
+    },
+    {
+      "adImgUrl": "https://img.alicdn.com/bao/uploaded///img.alicdn.com/bao/uploaded/i4/TB1vGO5IFXXXXb4XXXXXXXXXXXX_!!0-item_pic.jpg_160x160q90.jpg",
+      "adName": "广告名称4",
+      "process": "84",
+      "target": 10000,
+      "timeRemianing": 10,
+      "onceMoney": 0.5
+    },
+    {
+      "adImgUrl": "https://img.alicdn.com/bao/uploaded///img.alicdn.com/bao/uploaded/i4/TB1vGO5IFXXXXb4XXXXXXXXXXXX_!!0-item_pic.jpg_160x160q90.jpg",
+      "adName": "广告名称5",
+      "process": "85",
+      "target": 10000,
+      "timeRemianing": 10,
+      "onceMoney": 0.5
+    },
+    {
+      "adImgUrl": "https://img.alicdn.com/bao/uploaded///img.alicdn.com/bao/uploaded/i4/TB1vGO5IFXXXXb4XXXXXXXXXXXX_!!0-item_pic.jpg_160x160q90.jpg",
+      "adName": "广告名称6",
+      "process": "86",
+      "target": 10000,
+      "timeRemianing": 10,
+      "onceMoney": 0.5
+    },
+    {
+      "adImgUrl": "https://img.alicdn.com/bao/uploaded///img.alicdn.com/bao/uploaded/i4/TB1vGO5IFXXXXb4XXXXXXXXXXXX_!!0-item_pic.jpg_160x160q90.jpg",
+      "adName": "广告名称7",
+      "process": "87",
+      "target": 10000,
+      "timeRemianing": 10,
+      "onceMoney": 0.5
+    },
+    {
+      "adImgUrl": "https://img.alicdn.com/bao/uploaded///img.alicdn.com/bao/uploaded/i4/TB1vGO5IFXXXXb4XXXXXXXXXXXX_!!0-item_pic.jpg_160x160q90.jpg",
+      "adName": "广告名称8",
+      "process": "88",
+      "target": 10000,
+      "timeRemianing": 10,
+      "onceMoney": 0.5
+    },
+    {
+      "adImgUrl": "https://img.alicdn.com/bao/uploaded///img.alicdn.com/bao/uploaded/i4/TB1vGO5IFXXXXb4XXXXXXXXXXXX_!!0-item_pic.jpg_160x160q90.jpg",
+      "adName": "广告名称9",
+      "process": "89",
+      "target": 10000,
+      "timeRemianing": 10,
+      "onceMoney": 0.5
+    },
+    {
+      "adImgUrl": "https://img.alicdn.com/bao/uploaded///img.alicdn.com/bao/uploaded/i4/TB1vGO5IFXXXXb4XXXXXXXXXXXX_!!0-item_pic.jpg_160x160q90.jpg",
+      "adName": "广告名称10",
+      "process": "810",
+      "target": 10000,
+      "timeRemianing": 10,
+      "onceMoney": 0.5
+    }
+  ]
+}

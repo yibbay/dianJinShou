@@ -3,6 +3,8 @@
  */
 
 var React = require('react');
+var ReactDOM = require('react-dom');
+
 
 var MyList = React.createClass({
 
@@ -26,7 +28,7 @@ var MyListItem = React.createClass({
     render:function(){
         var css = this.css;
         return (
-            <div style={css.container}>
+            <div style={css.container} >
                 <div style={css.ad}>
                     <p>{this.props.adName}</p>
                     <p>{this.props.time}</p>

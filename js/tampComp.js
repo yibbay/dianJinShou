@@ -6,42 +6,31 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 
 var $ = require('jquery');
+
 var TampResultThs = require('./tampResultThsComp');//谢谢参与
 var TampResultAdd = require('./tampResultAddComp');//获得加息
 var TampResultNo1 = require('./tampResultNo1Comp');//第一名
 
 var Tamp = React.createClass({
     tampDan: function () {//点击砸蛋后
-        var random = Math.floor(Math.random() * 3 + 1);
-        //var arr = [{
-        //    success: 1,
-        //    result: [{
-        //        title: '谢谢参与来日再战',
-        //        subhead:'',
-        //        detail: '每天仅3次机会，让朋友帮你砸金蛋获得加息',
-        //        imgUrl: 'images/chabei.png'
-        //    },
-        //        {
-        //            title: '恭喜中奖 获得加息 ',
-        //            subhead:'今日赚钱+0.6%',
-        //            detail: '每天仅3次机会，让朋友帮你砸金蛋获得加息',
-        //            imgUrl: 'images/jinbi.png'
-        //        }
-        //    ]
-        //}];
-        console.log(random);
-        switch (random) {
-            case 1:
-                ReactDOM.render(<TampResultThs />, document.querySelector('#container'));
-                break;
-            case 2:
-                ReactDOM.render(<TampResultAdd />, document.querySelector('#container'));
 
-                break;
-            case 3:
-                ReactDOM.render(<TampResultNo1 />, document.querySelector('#dialog'));
-                break;
-        }
+        document.querySelector('#chuizi').setAttribute('class','scale');
+        setTimeout(function(){
+            var random = Math.floor(Math.random() * 3 + 1);
+            switch (random) {
+                case 1:
+                    ReactDOM.render(<TampResultThs />, document.querySelector('#container'));
+                    break;
+                case 2:
+                    ReactDOM.render(<TampResultAdd />, document.querySelector('#container'));
+
+                    break;
+                case 3:
+                    ReactDOM.render(<TampResultNo1 />, document.querySelector('#dialog'));
+                    break;
+            }
+        },2000)
+
     },
     render: function () {
         document.body.style.background = '#e94838';
@@ -59,7 +48,7 @@ var Tamp = React.createClass({
                 </div>
                 <div style={css.imgDiv} onClick={this.tampDan}>
                     <img style={css.danImg} src="images/jindan.png" alt=""/>
-                    <img style={css.chuiImg} src="images/chuaizi.png" alt=""/>
+                    <img id="chuizi" style={css.chuiImg} src="images/chuaizi.png" alt=""/>
                 </div>
                 <div style={css.jiaxi}>
                     今日已有<span style={css.totalMan}>124758</span>位网友获得加息！
@@ -96,7 +85,7 @@ Tamp.prototype.css = {
         position: 'absolute',
         width: '1.42rem',
         height: '1.39rem',
-        right: '0.1rem',
+        right: '0.2rem',
         top: '0.05rem'
     },
     jiaxi: {

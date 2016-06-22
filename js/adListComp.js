@@ -3,6 +3,10 @@
  */
 
 var React = require('react');
+var ReactDOM = require('react-dom');
+
+var RegasterHeader = require('./regasterComp').Regaster;//引入注册页头部模块
+var AdDetail = require('./adDetailComp');
 
 var AdList = React.createClass({
     getInitialState: function () {
@@ -17,7 +21,7 @@ var AdList = React.createClass({
         var data = this.state.data;
         var jsxArr =[];
         data.forEach(function(value,index){
-           jsxArr.push(<AdListItem {...value}/>)
+           jsxArr.push(<AdListItem data={value}/>)
         });
         return (
             <div>
@@ -52,9 +56,19 @@ var AdList = React.createClass({
 });
 
 var AdListItem = React.createClass({
+    adDetail:function(){//点击进入广告详情页adDetail
+        //alert();
+        ReactDOM.render(<RegasterHeader name={this.props.data.adName}/>,document.querySelector('#body'));
+        var container =document.querySelector('#container');
+        container.style.padding = '0';
+        ReactDOM.render(<AdDetail data={this.props.data} />,container);
+
+
+    },
     render: function () {
-        var props =this.props;
+        var props =this.props.data;
         var css= this.css;
+        css.process.width=props.process;
         return (
             <div>
                 <div style={css.imgContainer}>
@@ -70,7 +84,7 @@ var AdListItem = React.createClass({
                         </div>
                         <div style={css.processNav}>
                             <div style={css.wenziDiv}>
-                                {props.process}%
+                                {props.process}
                                 <p style={css.wenzi}>
                                     已达
                                 </p>
@@ -97,7 +111,7 @@ var AdListItem = React.createClass({
                     </div>
                 </div>
 
-                    <button style={css.button} className="btn btn-block">分享活动赚取佣金</button>
+                    <button onClick={this.adDetail} style={css.button} className="btn btn-block">分享活动赚取佣金</button>
 
             </div>
         )
@@ -106,7 +120,7 @@ var AdListItem = React.createClass({
 AdListItem.prototype.css={
     imgContainer:{
         display:'flex',
-        marginTop:'0.16rem'
+        marginTop:'0.28rem'
     },
     img:{
         width:'2.22rem',

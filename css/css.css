@@ -1,3 +1,11 @@
 .btn.btn-block.yellow{
     background:#ffda44;
 }
+@keyframes scale {
+    0%{transform:rotate(7deg)}
+    100%{transform: rotate(-15deg)}
+}
+.scale{
+    transform-origin: right bottom;
+    animation: scale 0.2s linear ;
+}

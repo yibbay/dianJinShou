@@ -3,7 +3,7 @@
  */
 
 var React = require('react');
-var LogHeaderComp = require('./logHeaderComp.js');
+
 var Project = require('./projectComp');
 
 var Banner = require('./bannerComp');
@@ -16,7 +16,7 @@ var Layout = React.createClass({
         return (
             <div>
                 <header id="header">
-                    <LogHeaderComp/>
+
                 </header>
                 <div id="banner">
                     <Banner/>

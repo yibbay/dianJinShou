@@ -2,17 +2,30 @@
  * Created by Administrator on 2016/6/20.
  */
 var React = require('react');
+var ReactDOM = require('react-dom');
+var Invite = require('./inviteComp');
+var RegasterHeader = require('./regasterComp').Regaster;
+var Tamp = require('./tampComp');
 
-var Project = React.createClass({
+var Project = React.createClass({//产品功能组件
+    inviteClick:function(){//功能点击事件//邀请好友
+
+        ReactDOM.render( <Invite/>,document.querySelector('#dialog'));
+
+    },
+    tampClick:function(){//功能点击事件//砸金蛋
+        ReactDOM.render( <RegasterHeader name="每日砸金蛋"/>,document.querySelector('#body'));
+        ReactDOM.render( <Tamp />,document.querySelector('#container'));
+    },
     render: function () {
         var css = this.css;
         return (
-            <div style={css.container}>
-                <div style={css.invite}>
+            <div style={css.container} >
+                <div style={css.invite} onClick={this.inviteClick}>
                     <div style={css.imgDiv1}>
                         <img style={css.img1} src="images/yaoqinghaoyou.png" alt=""/>
                     </div>
-                    <div style={css.pDiv1}>
+                    <div style={css.pDiv1} id="invite">
                         <p style={css.titleSpan}>邀请新好友</p>
                         <p style={css.contentSpan1}>+3.0元</p>
                     </div>
@@ -26,7 +39,7 @@ var Project = React.createClass({
                         <img style={css.img2} src="images/fenxiangzhuanqian.png" alt=""/>
                     </div>
                 </div>
-                <div style={css.tamp}>
+                <div style={css.tamp} onClick={this.tampClick}>
                     <div style={css.pDiv2}>
                         <p style={css.titleSpan}>每日砸金蛋</p>
                         <p style={css.contentSpan3}>收益翻倍</p>

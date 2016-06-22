@@ -6,20 +6,27 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 var Layout = require('./layoutComp');
 var Regaster = require('./regasterComp').Regaster;//取注册页面的状况
+var PersonHeader = require('./personHeaderComp');
+var LogHeader = require('./logHeaderComp');
 
 var Login = React.createClass({//登陆页布局
     handleClick: function () {
         Layout = require('./layoutComp');
         //console.log(<Layout name="test"/>);
-
+        LogHeader = require('./logHeaderComp');
         ReactDOM.render(<Layout/>, document.querySelector('#body'));
+        ReactDOM.render(<LogHeader/>, document.querySelector('#header'));
     },
     tapFindPassword: function () {//点击找回密码
         //alert();
         ReactDOM.render(<Regaster name="找回密码"/>,document.querySelector('#body'));
         ReactDOM.render(<FindPassword/>,document.querySelector('#container'));
     },
-
+    loginClick:function(){//点击登陆
+        //console.log(<PersonHeader name="test"/>);
+        ReactDOM.render(<Layout />,document.querySelector('#body'));
+        ReactDOM.render(<PersonHeader />,document.querySelector('#header'));
+    },
     render: function () {
         var css = this.css;
         return (
@@ -41,7 +48,7 @@ var Login = React.createClass({//登陆页布局
                         </div>
                     </div>
 
-                    <button style={css.marginDiv} className="btn btn-block yellow">登陆</button>
+                    <button onClick={this.loginClick} style={css.marginDiv} className="btn btn-block yellow">登陆</button>
 
                     <div style={css.marginDiv}>
                         <span onClick={this.tapFindPassword}>忘记密码</span> &nbsp; &nbsp; &nbsp;| &nbsp; &nbsp; &nbsp;

@@ -5,15 +5,18 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
 var Layout = require('./layoutComp');
+var LogHeader = require('./logHeaderComp');
+
 
 var Regaster = React.createClass({
-    handleClick: function () {
+    handleClick: function () {//返回主页
         //alert()
         //ReactDOM.unmountComponentAtNode(document.body);
         Layout = require('./layoutComp');
         ReactDOM.render(<Layout/>, document.querySelector('#body'));
+        LogHeader = require('./logHeaderComp');
+        ReactDOM.render(<LogHeader/>, document.querySelector('#header'));
     },
-
     render: function () {
         var css = this.css;
         return (

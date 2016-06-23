@@ -3,11 +3,16 @@
  */
 
 var React = require('react');
+var ReactDOM = require('react-dom');
+
+var Invite = require('./inviteComp');
 
 //var RegasterHeader  = require('./regasterComp').Regaster;//提取注册页的头部
 
 var AdDetail = React.createClass({
-
+    share:function(){
+        ReactDOM.render(<Invite/>,document.querySelector('#dialog'))
+    },
     render: function () {
         var css = this.css;
         var props = this.props.data;
@@ -22,19 +27,19 @@ var AdDetail = React.createClass({
                 <div style={css.processContainer}>
                     <div style={css.processDiv}>
                         {props.process}
-                        <p>已达</p>
+                        <p style={css.processP}>已达</p>
                     </div>
                     <div style={css.processDiv}>
                         {props.target}
-                        <p>目标</p>
+                        <p style={css.processP}>目标</p>
                     </div>
                     <div style={css.processDiv}>
                         {props.timeRemianing}天
-                        <p>剩余时间</p>
+                        <p style={css.processP}>剩余时间</p>
                     </div>
                     <div style={css.processDiv}>
                         {props.onceMoney}元/次
-                        <p>点击量</p>
+                        <p style={css.processP}>点击量</p>
                     </div>
                 </div>
                 <div style={css.pcDiv}>
@@ -52,11 +57,11 @@ var AdDetail = React.createClass({
                     图库
                     <img style={css.img2} src="images/三_03.png" alt=""/>
                 </div>
-                <div>
+                <div style={css.itemDiv}>
                     {imgArr}
                 </div>
                 <div>
-                    <button style={css.button} className="btn btn-block">分享赚取现金</button>
+                    <button onClick={this.share} style={css.button} className="btn btn-block">分享赚取现金</button>
                 </div>
             </div>
         )
@@ -67,12 +72,15 @@ var AdDetailItem = React.createClass({
         var props = this.props;
         var css = this.css;
         return (
-            <div>
-                <div>
+
+                <div style={css.margin}>
                     <img style={css.img} src={props.img.imgUrl} alt=""/>
+                    <div style={css.adname}>
+                        {props.img.adname}
+                    </div>
                 </div>
 
-            </div>
+
         )
     }
 });
@@ -88,7 +96,12 @@ AdDetail.prototype.css = {
         textAlign: 'center'
     },
     processDiv: {
-        flexGrow: '1'
+        flexGrow: '1',
+        fontSize:'0.28rem'
+    },
+    processP:{
+      fontSize:'0.22rem',
+        color:'#999999'
     },
     pcDiv: {
         position: 'relative',
@@ -157,7 +170,13 @@ AdDetail.prototype.css = {
         position: 'fixed',
         left: '0',
         bottom: '0'
+    },
+    itemDiv:{
+        display:'flex',
+        flexWrap:'wrap',
+        padding:'0.30rem 0.09rem 1rem'
     }
+
 
 
 };
@@ -167,6 +186,18 @@ AdDetailItem.prototype.css = {
         height: '2.06rem',
         display: 'inline-block'
     },
+    margin:{
+        margin:'0.08rem'
+    },
+    adname:{
+        height:'0.44rem',
+        background:'#b5b1b1',
+        lineHeight:'0.44rem',
+        textAlign:'center',
+        color:'#000000',
+        fontSize:'0.18rem'
+    }
+
 
 };
 

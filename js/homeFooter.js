@@ -6,11 +6,16 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 var $ = require('jquery');
 var RegasterHeader  = require('./regasterComp').Regaster;//提取注册页的头部
-//var AdShow = require('./adShowComp');//广告页展示模块
+
 var AdList = require('./adListComp');//广告清单列表
+var TodayRanking = require('./todayRankingComp');
+var PersonData = require('./personDataComp');
+
 
 var HomeFooter = React.createClass({
-    earnClick:function(){//点击进入广告清单列表
+    /************点击进入广告清单列表*****************/
+    /************点击进入广告清单列表*****************/
+    earnClick:function(){
         ReactDOM.render(<RegasterHeader name="分享赚钱"/>,document.querySelector('#body'));
         $.ajax({
            url:'./json/adList.json',
@@ -22,6 +27,26 @@ var HomeFooter = React.createClass({
         });
 
     },
+    /************点击进入榜单*****************/
+    /************点击进入榜单*****************/
+    ranking:function(){
+        $.ajax({
+           url:'./json/todayRanking.json',
+            type:'get',
+            success:function(data){
+                //console.log(data);
+                ReactDOM.render(<TodayRanking data={data.result}/>,document.querySelector('#body'));
+
+            }
+        });
+    },
+    /************点击进入个人资料*****************/
+    /************点击进入个人资料*****************/
+    personData:function(){
+
+        ReactDOM.render(<PersonData/>,document.querySelector('#body'))
+    },
+
     render:function(){
         var css =this.css;
         return (
@@ -38,13 +63,13 @@ var HomeFooter = React.createClass({
                   </p>
                   <p>赚钱</p>
               </div>
-              <div style={css.item}>
+              <div style={css.item} onClick={this.ranking}>
                   <p>
                       <img style={css.img} src="images/bangdan.png" alt=""/>
                   </p>
                   <p>榜单</p>
               </div>
-              <div style={css.item}>
+              <div style={css.item} onClick={this.personData}>
                   <p>
                       <img style={css.img} src="images/wode.png" alt=""/>
                   </p>

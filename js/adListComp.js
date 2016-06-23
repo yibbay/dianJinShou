@@ -7,6 +7,7 @@ var ReactDOM = require('react-dom');
 
 var RegasterHeader = require('./regasterComp').Regaster;//引入注册页头部模块
 var AdDetail = require('./adDetailComp');
+var HomeFooter = require('./homeFooter');
 
 var AdList = React.createClass({
     getInitialState: function () {
@@ -17,37 +18,42 @@ var AdList = React.createClass({
     ,
     render: function () {
         var css = this.css;
-        console.log(this.state.data);
+        //console.log(this.state.data);
         var data = this.state.data;
-        var jsxArr =[];
-        data.forEach(function(value,index){
-           jsxArr.push(<AdListItem data={value}/>)
+        HomeFooter = require('./homeFooter');
+        var jsxArr = [];
+        data.forEach(function (value, index) {
+            jsxArr.push(<AdListItem data={value}/>)
         });
         return (
             <div>
+                <div style={css.container}>
+                    <div style={css.navContainer}>
+                        <div style={css.div}>
+                            最新优先
+                        </div>
+                        <div style={css.div}>
+                            高收益优先
+                        </div>
+                        <div style={css.div}>
+                            行业分类
+                            <div>
+                                <img src="" alt=""/>
+                            </div>
+                        </div>
 
-                <div style={css.navContainer}>
-                    <div style={css.div}>
-                        最新优先
+
                     </div>
-                    <div style={css.div}>
-                        高收益优先
-                    </div>
-                    <div style={css.div}>
-                        行业分类
-                        <div>
-                            <img src="" alt=""/>
+                    <div style={css.tabContainer}>
+                        <div style={css.tab}>
                         </div>
                     </div>
-
-
-                </div>
-                <div style={css.tabContainer}>
-                    <div style={css.tab}>
+                    <div>
+                        {jsxArr}
                     </div>
                 </div>
                 <div>
-                    {jsxArr}
+                    <HomeFooter/>
                 </div>
             </div>
         )
@@ -56,19 +62,19 @@ var AdList = React.createClass({
 });
 
 var AdListItem = React.createClass({
-    adDetail:function(){//点击进入广告详情页adDetail
+    adDetail: function () {//点击进入广告详情页adDetail
         //alert();
-        ReactDOM.render(<RegasterHeader name={this.props.data.adName}/>,document.querySelector('#body'));
-        var container =document.querySelector('#container');
+        ReactDOM.render(<RegasterHeader name={this.props.data.adName}/>, document.querySelector('#body'));
+        var container = document.querySelector('#container');
         container.style.padding = '0';
-        ReactDOM.render(<AdDetail data={this.props.data} />,container);
+        ReactDOM.render(<AdDetail data={this.props.data}/>, container);
 
 
     },
     render: function () {
-        var props =this.props.data;
-        var css= this.css;
-        css.process.width=props.process;
+        var props = this.props.data;
+        var css = this.css;
+        css.process.width = props.process;
         return (
             <div>
                 <div style={css.imgContainer}>
@@ -78,7 +84,8 @@ var AdListItem = React.createClass({
                     <div style={css.processContainer}>
                         <p>{props.adName}</p>
                         <div className="progress" style={css.processDiv}>
-                            <div style={css.process} className="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" >
+                            <div style={css.process} className="progress-bar" role="progressbar" aria-valuenow="60"
+                                 aria-valuemin="0" aria-valuemax="100">
 
                             </div>
                         </div>
@@ -111,60 +118,62 @@ var AdListItem = React.createClass({
                     </div>
                 </div>
 
-                    <button onClick={this.adDetail} style={css.button} className="btn btn-block">分享活动赚取佣金</button>
+                <button onClick={this.adDetail} style={css.button} className="btn btn-block">分享活动赚取佣金</button>
 
             </div>
         )
     }
 });
-AdListItem.prototype.css={
-    imgContainer:{
-        display:'flex',
-        marginTop:'0.28rem'
+AdListItem.prototype.css = {
+    imgContainer: {
+        display: 'flex',
+        marginTop: '0.28rem'
     },
-    img:{
-        width:'2.22rem',
-        height:'1.42rem'
+    img: {
+        width: '2.22rem',
+        height: '1.42rem'
     },
-    processDiv:{
-        height:'0.1rem',
-        margin:'0.28rem 0 0.1rem 0',
+    processDiv: {
+        height: '0.1rem',
+        margin: '0.28rem 0 0.1rem 0',
     },
-    process:{
-        background:'#ffda44',
-        height:'0.1rem',
-        width:'60%'
+    process: {
+        background: '#ffda44',
+        height: '0.1rem',
+        width: '60%'
     },
-    processContainer:{
-        width:'6.66rem',
-        height:'1.40rem',
+    processContainer: {
+        width: '6.66rem',
+        height: '1.40rem',
         //background:'blue'
-        paddingLeft:'0.12rem'
+        paddingLeft: '0.12rem'
     },
-    processNav:{
-        height:'0.46',
-        width:'100%',
-        display:'flex',
-        fontSize:'0.22rem',
-        textAlign:'center',
+    processNav: {
+        height: '0.46',
+        width: '100%',
+        display: 'flex',
+        fontSize: '0.22rem',
+        textAlign: 'center',
 
     },
-    wenzi:{
-        fontSize:'0.14rem',
-        color:'#adadad'
+    wenzi: {
+        fontSize: '0.14rem',
+        color: '#adadad'
     },
-    wenziDiv:{
-        flexGrow:'1'
+    wenziDiv: {
+        flexGrow: '1'
     },
-    button:{
-        background:'#ffda44',
-        margin:'0.15rem 0'
+    button: {
+        background: '#ffda44',
+        margin: '0.15rem 0'
     }
-
 
 
 };
 AdList.prototype.css = {
+    container:{
+      marginBottom:'1rem'
+    },
     navContainer: {
         display: 'flex',
 

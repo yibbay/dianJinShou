@@ -17,6 +17,10 @@ var AdList = require('./adListComp');
 var PersonData = require('./personDataComp');
 
 var currentPage = localStorage.getItem('currentPage');
+//alert(currentPage)
+if(currentPage==''||currentPage==null||currentPage=='undefined'){
+    currentPage='home';
+}
 switch (currentPage) {
     case 'home':
         ReactDOM.render(<Layout/>, document.querySelector('#body'));
@@ -56,7 +60,7 @@ switch (currentPage) {
 }
 
 
-//在入口引入子组件是OK的
+
 
 
 

@@ -1,11 +1,20 @@
 /**
  * Created by Administrator on 2016/6/20.
  */
-
+//通用底部组件
 var React = require('react');
 var ReactDOM = require('react-dom');
 var $ = require('jquery');
 var RegasterHeader  = require('./regasterComp').Regaster;//提取注册页的头部
+
+var LogHeaderComp = require('./logHeaderComp.js');
+
+
+var Layout = require('./layoutComp.js');
+
+
+
+
 
 var AdList = require('./adListComp');//广告清单列表
 var TodayRanking = require('./todayRankingComp');
@@ -13,9 +22,23 @@ var PersonData = require('./personDataComp');
 
 
 var HomeFooter = React.createClass({
+    /************点击进入首页*****************/
+    /************点击进入首页*****************/
+    inHome:function(){
+
+        localStorage.setItem('currentPage','home');
+        Layout = require('./layoutComp.js');
+        LogHeaderComp = require('./logHeaderComp.js');
+        ReactDOM.render(<Layout/>,document.querySelector('#body'));
+        ReactDOM.render(<LogHeaderComp />,document.querySelector('#header'));
+
+    },
+
+
     /************点击进入广告清单列表*****************/
     /************点击进入广告清单列表*****************/
     earnClick:function(){
+        localStorage.setItem('currentPage','adList');
         ReactDOM.render(<RegasterHeader name="分享赚钱"/>,document.querySelector('#body'));
         $.ajax({
            url:'./json/adList.json',
@@ -30,6 +53,7 @@ var HomeFooter = React.createClass({
     /************点击进入榜单*****************/
     /************点击进入榜单*****************/
     ranking:function(){
+        localStorage.setItem('currentPage','ranking');
         $.ajax({
            url:'./json/todayRanking.json',
             type:'get',
@@ -43,15 +67,23 @@ var HomeFooter = React.createClass({
     /************点击进入个人资料*****************/
     /************点击进入个人资料*****************/
     personData:function(){
+        localStorage.setItem('currentPage','personData');
+        $.ajax({
+           type:'get',
+            url:'./json/pesonData.json',
+            success:function(data){
+                //console.log(data);
+                ReactDOM.render(<PersonData {...data.result}/>,document.querySelector('#body'))
 
-        ReactDOM.render(<PersonData/>,document.querySelector('#body'))
+            }
+        });
     },
 
     render:function(){
         var css =this.css;
         return (
           <div style={css.container}>
-              <div style={css.item}>
+              <div style={css.item} onClick={this.inHome}>
                   <p>
                       <img style={css.img} src="images/shouye.png" alt=""/>
                   </p>

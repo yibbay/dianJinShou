@@ -3,9 +3,12 @@
  */
 
 var React = require('react');
+var ReactDOM =require('react-dom');
 
 var TampResultNo1 = React.createClass({
-
+    close:function(){//点击关闭
+        ReactDOM.unmountComponentAtNode(document.querySelector('#dialog'));
+    },
     render: function () {
         var css = this.css;
         return (
@@ -23,7 +26,7 @@ var TampResultNo1 = React.createClass({
                     <img style={css.danImg} src="images/jindan.png" alt=""/>
                     <img style={css.chuiImg} src="images/chuaizi.png" alt=""/>
                 </div>
-                <a style={css.a} className="btn btn-block">关闭</a>
+                <a style={css.a} className="btn btn-block" onClick={this.close}>关闭</a>
             </div>
         )
     }

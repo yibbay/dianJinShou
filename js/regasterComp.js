@@ -10,6 +10,7 @@ var LogHeader = require('./logHeaderComp');
 
 var Regaster = React.createClass({
     handleClick: function () {//返回主页
+        document.body.style.background = '#eee';
         //alert()
         //ReactDOM.unmountComponentAtNode(document.body);
         Layout = require('./layoutComp');

@@ -21,7 +21,7 @@ var AdDetail = React.createClass({
             imgArr.push(<AdDetailItem img={value}/>)
         });
 
-        console.log(props.productImgList);
+        //console.log(props.productImgList);
         return (
             <div style={css.container}>
                 <div style={css.processContainer}>

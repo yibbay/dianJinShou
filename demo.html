@@ -4,22 +4,22 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <script>
-        window.onload=function(){
-            var $={
-                extend:function(obj){
-            this.__proto__.getAjax= obj.getAjax;//通过__proto__添加
-        },
-        getName:function(){
-            console.log("this is name");
-        }
-        }
-        $.getName();
-        $.extend({
-            getAjax:function(){
-                console.log("this is method ajax");
-            }
-        });
-        console.log($);
+        window.onload = function () {
+            var $ = {
+                extend: function (obj) {
+                    for(var i in obj){
+                        this.__proto__[i]= obj[i];//通过__proto__添加
+
+                    }
+                },
+                getName: function () {
+                    console.log("this is name");
+                }
+            };
+            //$.getName();
+            var ob
+            $.extend({name:'aaa','age':'age'},{'bbb':'ccc'});
+            console.log($.__proto__);
         }
 
     </script>

@@ -4,6 +4,7 @@
 var React = require('react');
 var $=require('jquery');
 var Swiper = require('swiper');
+var counter =1;
 
 //var ReactDOM = require('react-dom');
 /**声明页面banner  开始**/
@@ -68,7 +69,7 @@ var BannerItem = React.createClass({
     componentDidMount:function(){
         counter++;
        if(counter==4){
-           console.log('aaa')
+           //console.log('aaa')
            var mySwiper = new Swiper('.swiper-container',{
                pagination : '.swiper-pagination',
                prevButton:'.swiper-button-prev',

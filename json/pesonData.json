@@ -1,0 +1,9 @@
+{
+ "success":1,
+  "result":{
+    "userName":"草上飘",
+    "userEarn":99999,
+    "todayEarn":9999,
+    "userImgUrl":"./images/wode.png"
+  }
+}

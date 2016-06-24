@@ -9,10 +9,9 @@ var LogHeader = require('./logHeaderComp');
 
 
 var Regaster = React.createClass({
-    handleClick: function () {//返回主页
+    handleClick: function (e) {//返回主页
         document.body.style.background = '#eee';
-        //alert()
-        //ReactDOM.unmountComponentAtNode(document.body);
+       console.log(e.target.nextSibling.innerHTML);
         Layout = require('./layoutComp');
         ReactDOM.render(<Layout/>, document.querySelector('#body'));
         LogHeader = require('./logHeaderComp');
@@ -24,7 +23,7 @@ var Regaster = React.createClass({
             <div>
                 <header style={css.header}>
                     <img onClick={this.handleClick} style={css.headerImg} src="images/zuojiantou.png" alt=""/>
-                    <span> {this.props.name} </span>
+                    <span>{this.props.name}</span>
                 </header>
                 <div style={css.container} id="container">
 

@@ -17,7 +17,7 @@ var AdList = require('./adListComp');
 var PersonData = require('./personDataComp');
 
 var currentPage = localStorage.getItem('currentPage');
-//alert(currentPage)
+console.log(currentPage);
 if(currentPage==''||currentPage==null||currentPage=='undefined'){
     currentPage='home';
 }

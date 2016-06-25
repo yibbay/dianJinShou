@@ -8,6 +8,7 @@ var ReactDOM = require('react-dom');
 var RegasterHeader = require('./regasterComp').Regaster;//引入注册页头部模块
 var AdDetail = require('./adDetailComp');
 var HomeFooter = require('./homeFooter');
+var IScroll = require('iscroll');
 
 var AdList = React.createClass({
     getInitialState: function () {
@@ -17,6 +18,7 @@ var AdList = React.createClass({
     }
     ,
     render: function () {
+        document.body.style.background = '#fafafa';
         var css = this.css;
         //console.log(this.state.data);
         var data = this.state.data;
@@ -27,31 +29,33 @@ var AdList = React.createClass({
         });
         return (
             <div>
-                <div style={css.container}>
-                    <div style={css.navContainer}>
-                        <div style={css.div}>
-                            最新优先
+                <div>
+                    <div className="wrapper" style={css.top}>
+                        <div className="scroller" style={css.container}>
+                            <ul>
+                                <li style={css.liHeight}>
+                                    <div style={css.navContainer}>
+                                        <div style={css.div}>
+                                            最新优先
+                                        </div>
+                                        <div style={css.div}>
+                                            高收益优先
+                                        </div>
+                                        <div style={css.div}>
+                                            行业分类
+                                        </div>
+                                    </div>
+                                    <div style={css.tabContainer}>
+                                        <div style={css.tab}>
+                                        </div>
+                                    </div>
+                                </li>
+                                {jsxArr}
+                            </ul>
                         </div>
-                        <div style={css.div}>
-                            高收益优先
-                        </div>
-                        <div style={css.div}>
-                            行业分类
-                            <div>
-                                <img src="" alt=""/>
-                            </div>
-                        </div>
-
-
-                    </div>
-                    <div style={css.tabContainer}>
-                        <div style={css.tab}>
-                        </div>
-                    </div>
-                    <div>
-                        {jsxArr}
                     </div>
                 </div>
+
                 <div>
                     <HomeFooter/>
                 </div>
@@ -71,12 +75,19 @@ var AdListItem = React.createClass({
 
 
     },
+    componentDidMount: function () {
+
+        new IScroll('.wrapper', {bounceEasing: 'elastic', bounceTime: 1200});
+        document.addEventListener('touchmove', function (e) {
+            e.preventDefault();
+        }, false);
+    },
     render: function () {
         var props = this.props.data;
         var css = this.css;
         css.process.width = props.process;
         return (
-            <div>
+            <li>
                 <div style={css.imgContainer}>
                     <div>
                         <img style={css.img} src={props.adImgUrl} alt=""/>
@@ -120,14 +131,15 @@ var AdListItem = React.createClass({
 
                 <button onClick={this.adDetail} style={css.button} className="btn btn-block">分享活动赚取佣金</button>
 
-            </div>
+            </li>
         )
     }
 });
 AdListItem.prototype.css = {
     imgContainer: {
         display: 'flex',
-        marginTop: '0.28rem'
+        marginTop: '0.28rem',
+        height: '1.82rem'
     },
     img: {
         width: '2.22rem',
@@ -171,13 +183,22 @@ AdListItem.prototype.css = {
 
 };
 AdList.prototype.css = {
-    container:{
-      marginBottom:'1rem'
+    top: {
+        top: '0',
+
     },
+    liHeight: {},
+    container: {
+        fontSize: '0.28rem',
+        padding: '0 0.3rem',
+        marginBottom: '1rem'
+    },
+
     navContainer: {
         display: 'flex',
-
-        textAlign: 'center'
+        height: '0.85rem',
+        textAlign: 'center',
+        lineHeight: '0.85rem'
     },
     div: {
         flexGrow: '1'
@@ -185,8 +206,9 @@ AdList.prototype.css = {
     tabContainer: {
         position: 'relative',
         width: '100%',
-        //height: '0.01rem',
-        background: 'blue'
+        height: '0.03rem',
+        background: '#ccc',
+        marginTop: '0.02rem'
     },
     tab: {
         position: 'absolute',
@@ -194,7 +216,7 @@ AdList.prototype.css = {
         background: '#fe4040',
         left: '0',
         bottom: '0',
-        height: '0.01rem',
+        height: '0.03rem',
     }
 
 };

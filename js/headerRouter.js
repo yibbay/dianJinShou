@@ -7,7 +7,13 @@ var ReactDOM = require('react-dom');
 
 var HeaderRouter = {
     router:function(e){
-        e.target.nextSibling.innerHTML='';
+        //e.target.nextSibling.innerHTML='';
+        var content = e.target.nextSibling.innerHTML;
+        console.log(content);
+        switch(content){
+            case '':
+                break;
+        }
     }
 };
 

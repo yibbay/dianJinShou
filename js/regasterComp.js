@@ -11,7 +11,7 @@ var LogHeader = require('./logHeaderComp');
 var Regaster = React.createClass({
     handleClick: function (e) {//返回主页
         document.body.style.background = '#eee';
-       console.log(e.target.nextSibling.innerHTML);
+        console.log(e.target.nextSibling.innerHTML);
         Layout = require('./layoutComp');
         ReactDOM.render(<Layout/>, document.querySelector('#body'));
         LogHeader = require('./logHeaderComp');
@@ -34,38 +34,49 @@ var Regaster = React.createClass({
 });
 
 var RegasterItem = React.createClass({
-
     radio: function (e) {//点击单选框事件
-        console.log(e.target.className);
-        if (e.target.className == 'radioDiv1') {
-
+        function handle(){
+            if (e.target.children[0].checked) {
+                e.target.children[0].checked = false;
+                e.target.children[2].className = 'hide';
+            }
+            else {
+                e.target.children[0].checked = true;
+                e.target.children[2].className = 'show';
+            }
         }
-        if (e.target.className == 'radioDiv2') {
-
+        if (e.target.className == 'radio1') {
+            handle();
+            //console.log(e.target.children[0].checked);
         }
-        return false;
+        if (e.target.className == 'radio2') {
+            handle();
+        }
+        e.preventDefault();
     },
     handleClick: function () {//点击下一步事件
         //alert();
-        ReactDOM.render(<RegasterItem2/>, document.querySelector('#container'))
+        ReactDOM.render(<RegasterItem2/>, document.querySelector('#container'));
     },
     render: function () {
         var css = this.css;
         return (
-            <div >
-                <div style={css.inputDiv1} onClick={this.radio} className="radio1">
-                    <label className="radio1">
-                        <input className="radio1" id="zuan-qian" style={css.inputhidden} name="way" type="radio"/>
-                        <img className="radio1" id="zuan-qian-icon" style={css.inputimg} src="images/duigou3.png"
+            <div onClick={this.radio}>
+                <div style={css.inputDiv1}>
+                    <label style={css.label} className="radio1">
+                        <input id="zuan-qian" style={css.inputhidden} name="way" type="radio"/>
+                        <img id="zuan-qian-icon" style={css.inputimg} src="images/duigou3.png"
                              alt=""/>
+                        <img className="hide" style={css.dagou} src="images/duigou.png" alt=""/>
                         &nbsp;我要赚钱
                     </label>
                 </div>
-                <div className="radio2" style={css.inputDiv2} onClick={this.radio}>
-                    <label className="radio2">
-                        <input className="radio2" id="liu-liang" style={css.inputhidden} name="way" type="radio"/>
-                        <img className="radio2" id="liu-liang-img" style={css.inputimg} src="images/duigou3.png"
+                <div className="radio2" style={css.inputDiv2}>
+                    <label style={css.label} className="radio2">
+                        <input id="liu-liang" style={css.inputhidden} name="way" type="radio"/>
+                        <img id="liu-liang-img" style={css.inputimg} src="images/duigou3.png"
                              alt=""/>
+                        <img className="hide" style={css.dagou} src="images/duigou.png" alt=""/>
                         &nbsp;我要流量
                     </label>
                 </div>
@@ -96,7 +107,7 @@ var RegasterItem2 = React.createClass({
                 </div>
                 <div style={css.inputDiv} className="form-group">
                     <input style={css.input} className="form-control" type="text" placeholder="短信校验码"/>
-                    <p style={css.inputP}> |  重新发送</p>
+                    <p style={css.inputP}> | 重新发送</p>
                 </div>
 
                 <button style={css.button} className="btn btn-block" onClick={this.handleClick}>完成</button>
@@ -124,7 +135,8 @@ Regaster.prototype.css = {
         fontWeight: 'bold',
         fontSize: '0.4rem',
         color: '#333333',
-        position: 'relative'
+        position: 'relative',
+        zIndex:'999'
     },
     headerImg: {
         width: '0.2rem',
@@ -163,7 +175,7 @@ RegasterItem.prototype.css = {
     },
     button: {
         background: '#ffda44',
-        height:'0.64rem'
+        height: '0.64rem'
     },
     p: {
         color: '#999999',
@@ -173,12 +185,22 @@ RegasterItem.prototype.css = {
     span: {
         color: '#272525',
         textDecoration: 'underline'
+    },
+    label: {
+        fontSize: '0.3rem'
+    },
+    dagou: {
+        width: '0.29rem',
+        height: '0.19rem',
+        position: 'absolute',
+        left: '0.1rem',
+        top: '0.12rem'
     }
 };
 RegasterItem2.prototype.css = {
     button: {
         background: '#ffda44',
-        height:'0.64rem'
+        height: '0.64rem'
     },
     p: {
         color: '#999999',
@@ -189,21 +211,21 @@ RegasterItem2.prototype.css = {
         color: '#272525',
         textDecoration: 'underline'
     },
-    input:{
-      height:'0.64rem'
+    input: {
+        height: '0.64rem'
     },
-    inputDiv:{
-        position:'relative',
-        marginTop:'0.28rem'
+    inputDiv: {
+        position: 'relative',
+        marginTop: '0.28rem'
     },
-    inputP:{
-        position:'absolute',
-        right:'10px',
-        top:'20%'
+    inputP: {
+        position: 'absolute',
+        right: '10px',
+        top: '20%'
     },
-    phoneNumber:{
-        textAlign:'center',
-        fontSize:'0.24rem'
+    phoneNumber: {
+        textAlign: 'center',
+        fontSize: '0.24rem'
     }
 };
 module.exports = {

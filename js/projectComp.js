@@ -69,6 +69,7 @@ Project.prototype.css = {
     container: {
         position: 'relative',
         padding: '0.22rem 0.28rem',
+        marginBottom:'6.2rem'
     },
     invite: {
         width: '3.4rem',

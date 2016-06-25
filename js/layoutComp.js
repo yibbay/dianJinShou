@@ -10,25 +10,38 @@ var Banner = require('./bannerComp');
 
 var HomeFooter = require('./homeFooter');
 
+//var IScroll = require('iscroll');
+//alert(isll);
+
 var Layout = React.createClass({
 
     render: function () {
         return (
-            <div>
+            <div >
+
                 <header id="header">
 
                 </header>
+
+
                 <div id="banner">
                     <Banner/>
                 </div>
                 <div id="project">
                     <Project/>
                 </div>
+
+
                 <footer id="footer">
                     <HomeFooter/>
                 </footer>
+
             </div>
         )
+    },
+    componentDidMount: function () {
+
+
     }
 });
 module.exports = Layout;

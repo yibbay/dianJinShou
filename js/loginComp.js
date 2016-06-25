@@ -8,6 +8,7 @@ var Layout = require('./layoutComp');
 var Regaster = require('./regasterComp').Regaster;//取注册页面的状况
 var PersonHeader = require('./personHeaderComp');
 var LogHeader = require('./logHeaderComp');
+var $ =require('jquery');
 
 var Login = React.createClass({//登陆页布局
     handleClick: function () {
@@ -24,8 +25,31 @@ var Login = React.createClass({//登陆页布局
     },
     loginClick:function(){//点击登陆
         //console.log(<PersonHeader name="test"/>);
-        ReactDOM.render(<Layout />,document.querySelector('#body'));
-        ReactDOM.render(<PersonHeader />,document.querySelector('#header'));
+        var user = document.getElementById('user-name').value;
+        var password = document.getElementById('user-password').value;
+        var url='http://datainfo.duapp.com/shopdata/userinfo.php';
+        var data = {
+          status:'login',
+            userID:user,
+            password:password
+        };
+        $.ajax({
+           url:url,
+            type:'post',
+            data:data,
+            success:function(data){
+                console.log(data)
+                if(data==0){
+                    alert('用户名不存在')
+                }else if(data==2){
+                    alert('用户名与密码不符')
+                }else{
+                    ReactDOM.render(<Layout />,document.querySelector('#body'));
+                    ReactDOM.render(<PersonHeader />,document.querySelector('#header'));
+                }
+            }
+        });
+
     },
     render: function () {
         var css = this.css;
@@ -38,11 +62,11 @@ var Login = React.createClass({//登陆页布局
                 <div style={css.formContainer}>
 
                     <div className="form-group">
-                        <input className="form-control" type="text" placeholder="手机号/用户名/邮箱"/>
+                        <input id="user-name" className="form-control" type="text" placeholder="手机号/用户名/邮箱"/>
                     </div>
                     <div className="form-group" style={css.marginDiv}>
                         <div style={css.relative}>
-                            <input className="form-control" type="password" placeholder="登录密码"/>
+                            <input id="user-password" className="form-control" type="password" placeholder="登录密码"/>
                             <img style={css.yangjingimg2} src="images/yanjing2.png" alt=""/>
                             <img style={css.yangjingimg} src="images/yanjing.png" alt=""/>
                         </div>

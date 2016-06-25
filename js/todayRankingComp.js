@@ -6,13 +6,15 @@ var React = require('react');
 var ReactDOM = require('react-dom');
 
 var HomeFooter = require('./homeFooter');
+var IScroll = require('iscroll');
 //alert();
 //console.log( <HomeFooter naem="kadjflajfla"/>);
-
+var counter =0;
 var TodayRanking = React.createClass({
     componentWillMount: function () {
 
     },
+
     render: function () {
         var css = this.css;
         var itemArr = [];
@@ -27,23 +29,38 @@ var TodayRanking = React.createClass({
                     <div style={css.rankingHeader}>
                         今日榜单
                     </div>
-                    <div style={css.No1}>
 
-                        <img style={css.userImg} src={data.userSelf.userImg} alt=""/>
-                        <div style={css.user}>
-                            <p style={css.userName}>{data.userSelf.userName}</p>
-                            <p style={css.rankingNumber}>第{data.userSelf.No}名</p>
-                        </div>
-                        <div style={css.clickNumber}>
-                            {data.userSelf.clickNumber}次点击
+
+                    <div className="wrapper">
+                        <div className="scroller">
+                            <div id="pullDown">
+                                <span>下拉刷新…</span>
+                            </div>
+                            <ul>
+                                <li>
+                                    <div style={css.No1}>
+
+                                        <img style={css.userImg} src={data.userSelf.userImg} alt=""/>
+                                        <div style={css.user}>
+                                            <p style={css.userName}>{data.userSelf.userName}</p>
+                                            <p style={css.rankingNumber}>第{data.userSelf.No}名</p>
+                                        </div>
+                                        <div style={css.clickNumber}>
+                                            {data.userSelf.clickNumber}次点击
+                                        </div>
+
+                                    </div>
+                                    <div style={css.five}>
+                                        每日前五名增获 <span style={css.red}>"砸金蛋"一次</span>
+                                    </div>
+                                </li>
+                                {itemArr}
+                            </ul>
+                            <div id="pullUp">
+                                <span>上拉加载更多…</span>
+                            </div>
                         </div>
 
-                    </div>
-                    <div style={css.five}>
-                        每日前五名增获 <span style={css.red}>"砸金蛋"一次</span>
-                    </div>
-                    <div>
-                        {itemArr}
                     </div>
                 </div>
                 <div>
@@ -59,22 +76,35 @@ var TodayRankingItem = React.createClass({
         var props = this.props;
         var css = this.css;
         return (
-            <div style={css.container}>
-                <div style={css.No}>
-                    {props.No}
+            <li >
+                <div style={css.container}>
+                    <div style={css.No}>
+                        {props.No}
+                    </div>
+                    <div>
+                        <img style={css.userImg} src={props.userImg} alt=""/>
+                    </div>
+                    <div style={css.userName}>
+                        &nbsp;&nbsp;{props.userName}
+                    </div>
+                    <div style={css.clickNumber}>
+                        {props.clickNumber}次点击
+                    </div>
                 </div>
-                <div>
-                    <img style={css.userImg} src={props.userImg} alt=""/>
-                </div>
-                <div style={css.userName}>
-                    &nbsp;&nbsp;{props.userName}
-                </div>
-                <div style={css.clickNumber}>
-                    {props.clickNumber}次点击
-                </div>
-            </div>
+            </li>
         )
-    }
+    },
+    componentDidMount: function () {
+
+
+            new IScroll('.wrapper', {bounceEasing: 'elastic', bounceTime: 1200});
+            document.addEventListener('touchmove', function (e) {
+                e.preventDefault();
+            }, false);
+
+
+    },
+
 
 });
 TodayRanking.prototype.css = {
@@ -93,7 +123,7 @@ TodayRanking.prototype.css = {
         width: '100%',
         height: '1.67rem',
         background: '#f5f4f0',
-        position:'relative'
+        position: 'relative'
     },
     five: {
         width: '100%',
@@ -101,7 +131,7 @@ TodayRanking.prototype.css = {
         fontSize: '0.26rem',
         textAlign: 'center',
         lineHeight: '0.92rem',
-        background:'#ffffff'
+        background: '#ffffff'
     },
     red: {
         color: '#fe4542'
@@ -113,24 +143,24 @@ TodayRanking.prototype.css = {
         top: '0.27rem',
         left: '0.84rem'
     },
-    user:{
-        left:'2.0rem',
-        top:'0.44rem',
-        position:'absolute'
+    user: {
+        left: '2.0rem',
+        top: '0.44rem',
+        position: 'absolute'
     },
-    userName:{
-        fontSize:'0.28rem',
-        fontWeight:'bold'
+    userName: {
+        fontSize: '0.28rem',
+        fontWeight: 'bold'
     },
-    rankingNumber:{
-        fontSize:'0.22rem',
-        color:'#666666'
+    rankingNumber: {
+        fontSize: '0.22rem',
+        color: '#666666'
     },
-    clickNumber:{
-        position:'absolute',
-        right:'0.3rem',
-        fontSize:'0.23rem',
-        top:'0.71rem'
+    clickNumber: {
+        position: 'absolute',
+        right: '0.3rem',
+        fontSize: '0.23rem',
+        top: '0.71rem'
     }
 };
 TodayRankingItem.prototype.css = {
@@ -158,6 +188,6 @@ TodayRankingItem.prototype.css = {
         top: '0'
     }
 
-}
+};
 
 module.exports = TodayRanking;

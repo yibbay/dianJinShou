@@ -1,0 +1,27 @@
+{
+  "name": "y",
+  "version": "1.0.0",
+  "description": "this is test",
+  "main": "webpack.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yibbay/dianJinShou.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yibbay/dianJinShou/issues"
+  },
+  "homepage": "https://github.com/yibbay/dianJinShou#readme",
+  "devDependencies": {
+    "jquery": "^3.0.0",
+    "jsx-loader": "^0.13.2",
+    "react": "^15.2.0",
+    "react-dom": "^15.2.0",
+    "swiper": "^3.3.1",
+    "webpack": "^1.13.1"
+  }
+}

@@ -30,10 +30,10 @@ var AdList = React.createClass({
         return (
             <div>
                 <div>
-                    <div className="wrapper" style={css.top}>
-                        <div className="scroller" style={css.container}>
-                            <ul>
-                                <li style={css.liHeight}>
+                    <div  style={css.top}>
+                        <div >
+                            <div>
+                                <div style={css.liHeight}>
                                     <div style={css.navContainer}>
                                         <div style={css.div}>
                                             最新优先
@@ -49,9 +49,9 @@ var AdList = React.createClass({
                                         <div style={css.tab}>
                                         </div>
                                     </div>
-                                </li>
+                                </div>
                                 {jsxArr}
-                            </ul>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -77,17 +77,17 @@ var AdListItem = React.createClass({
     },
     componentDidMount: function () {
 
-        new IScroll('.wrapper', {bounceEasing: 'elastic', bounceTime: 1200});
-        document.addEventListener('touchmove', function (e) {
-            e.preventDefault();
-        }, false);
+//      new IScroll('.wrapper', {bounceEasing: 'elastic', bounceTime: 1200});
+//      document.addEventListener('touchmove', function (e) {
+//          e.preventDefault();
+//      }, false);
     },
     render: function () {
         var props = this.props.data;
         var css = this.css;
         css.process.width = props.process;
         return (
-            <li>
+            <div>
                 <div style={css.imgContainer}>
                     <div>
                         <img style={css.img} src={props.adImgUrl} alt=""/>
@@ -131,7 +131,7 @@ var AdListItem = React.createClass({
 
                 <button onClick={this.adDetail} style={css.button} className="btn btn-block">分享活动赚取佣金</button>
 
-            </li>
+            </div>
         )
     }
 });
@@ -155,7 +155,7 @@ AdListItem.prototype.css = {
         width: '60%'
     },
     processContainer: {
-        width: '6.66rem',
+     width: '5rem',
         height: '1.40rem',
         //background:'blue'
         paddingLeft: '0.12rem'
@@ -188,11 +188,11 @@ AdList.prototype.css = {
 
     },
     liHeight: {},
-    container: {
-        fontSize: '0.28rem',
-        padding: '0 0.3rem',
-        marginBottom: '1rem'
-    },
+//  container: {
+//      fontSize: '0.28rem',
+//      padding: '0 0.3rem',
+//      marginBottom: '1rem'
+//  },
 
     navContainer: {
         display: 'flex',

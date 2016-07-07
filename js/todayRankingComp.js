@@ -18,10 +18,114 @@ var TodayRanking = React.createClass({
     render: function () {
         var css = this.css;
         var itemArr = [];
-        var data = this.props.data;
+        var data = {
+  "success": 1,
+  "result": {
+    "userSelf": {
+      "userImg":"./images/gerenxinxi.png",
+      "No": 23,
+      "userName": "小草咋不上天",
+      "clickNumber": 1600
+    },
+    "userList": [
+      {
+        "No": 1,
+        "userName": "用户名1",
+        "clickNumber": 2099,
+        "userImg": "./images/yaoqinghaoyou.png"
+      },
+      {
+        "No": 2,
+        "userName": "用户名2",
+        "clickNumber": 2098,
+        "userImg": "./images/yaoqinghaoyou.png"
+      },
+      {
+        "No": 3,
+        "userName": "用户名3",
+        "clickNumber": 2097,
+        "userImg": "./images/yaoqinghaoyou.png"
+      },
+      {
+        "No": 4,
+        "userName": "用户名4",
+        "clickNumber": 2096,
+        "userImg": "./images/yaoqinghaoyou.png"
+      },
+      {
+        "No": 5,
+        "userName": "用户名5",
+        "clickNumber": 2095,
+        "userImg": "./images/yaoqinghaoyou.png"
+      },
+      {
+        "No": 6,
+        "userName": "用户名6",
+        "clickNumber": 2094,
+        "userImg": "./images/yaoqinghaoyou.png"
+      },
+      {
+        "No": 7,
+        "userName": "用户名7",
+        "clickNumber": 2093,
+        "userImg": "./images/yaoqinghaoyou.png"
+      },
+      {
+        "No": 8,
+        "userName": "用户名8",
+        "clickNumber": 2092,
+        "userImg": "./images/yaoqinghaoyou.png"
+      },
+      {
+        "No": 9,
+        "userName": "用户名9",
+        "clickNumber": 2091,
+        "userImg": "./images/yaoqinghaoyou.png"
+      },
+      {
+        "No": 10,
+        "userName": "用户名10",
+        "clickNumber": 2090,
+        "userImg": "./images/yaoqinghaoyou.png"
+      },
+      {
+        "No": 11,
+        "userName": "用户名11",
+        "clickNumber": 2089,
+        "userImg": "./images/yaoqinghaoyou.png"
+      },
+      {
+        "No": 12,
+        "userName": "用户名12",
+        "clickNumber": 2088,
+        "userImg": "./images/yaoqinghaoyou.png"
+      },
+      {
+        "No": 13,
+        "userName": "用户名13",
+        "clickNumber": 2087,
+        "userImg": "./images/yaoqinghaoyou.png"
+      },
+      {
+        "No": 14,
+        "userName": "用户名14",
+        "clickNumber": 2086,
+        "userImg": "./images/yaoqinghaoyou.png"
+      },
+      {
+        "No": 15,
+        "userName": "用户名15",
+        "clickNumber": 2085,
+        "userImg": "./images/yaoqinghaoyou.png"
+      }
+    ]
+  }
+};
         HomeFooter = require('./homeFooter');
-        data.userList.forEach(function (value) {
+        //alert(JSON.stringify(data.result.userList))
+        data.result.userList.forEach(function (value) {
             itemArr.push(<TodayRankingItem {...value}/>)
+            //alert(value)
         });
         return (
             <div>
@@ -29,7 +133,6 @@ var TodayRanking = React.createClass({
                     <div style={css.rankingHeader}>
                         今日榜单
                     </div>
-
 
                     <div className="wrapper">
                         <div className="scroller">
@@ -40,13 +143,13 @@ var TodayRanking = React.createClass({
                                 <li>
                                     <div style={css.No1}>
 
-                                        <img style={css.userImg} src={data.userSelf.userImg} alt=""/>
+                                        <img style={css.userImg} src={data.result.userSelf.userImg} alt=""/>
                                         <div style={css.user}>
-                                            <p style={css.userName}>{data.userSelf.userName}</p>
-                                            <p style={css.rankingNumber}>第{data.userSelf.No}名</p>
+                                            <p style={css.userName}>{data.result.userSelf.userName}</p>
+                                            <p style={css.rankingNumber}>第{data.result.userSelf.No}名</p>
                                         </div>
                                         <div style={css.clickNumber}>
-                                            {data.userSelf.clickNumber}次点击
+                                            {data.result.userSelf.clickNumber}次点击
                                         </div>
 
                                     </div>

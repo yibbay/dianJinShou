@@ -40,29 +40,176 @@ var HomeFooter = React.createClass({
     earnClick:function(){
         localStorage.setItem('currentPage','adList');
         ReactDOM.render(<RegasterHeader name="分享赚钱"/>,document.querySelector('#body'));
-        $.ajax({
-           url:'./json/adList.json',
-            type:'get',
-            success:function(data){
+//      $.ajax({
+//         url:'./json/adList.json',
+//          type:'get',
+//          success:function(data){
+	var data ={
+  "success": 1,
+  "result": [
+    {
+      "adImgUrl": "https://img.alicdn.com/bao/uploaded///img.alicdn.com/bao/uploaded/i4/TB1vGO5IFXXXXb4XXXXXXXXXXXX_!!0-item_pic.jpg_160x160q90.jpg",
+      "adName": "广告名称1",
+      "process": "51%",
+      "target": 10000,
+      "timeRemianing": 10,
+      "onceMoney": 0.5,
+      "productImgList": [
+        {"adname":"SUV1","imgUrl":"https:\/\/img.alicdn.com\/bao\/uploaded\/i3\/TB1l1RHJFXXXXXDXVXXXXXXXXXX_!!0-item_pic.jpg_430x430q90.jpg"},
+        {"adname":"SUV2","imgUrl":"https:\/\/img.alicdn.com\/imgextra\/i1\/451135386\/TB2jtacepXXXXcBXpXXXXXXXXXX_!!451135386.jpg_60x60q90.jpg"},
+        {"adname":"SUV3","imgUrl":"https:\/\/img.alicdn.com\/imgextra\/i2\/451135386\/TB2LtilepXXXXXyXpXXXXXXXXXX_!!451135386.jpg_60x60q90.jpg"},
+        {"adname":"SUV4","imgUrl":"https:\/\/img.alicdn.com\/imgextra\/i1\/451135386\/TB2a.ioepXXXXXEXpXXXXXXXXXX_!!451135386.jpg_60x60q90.jpg"},
+        {"adname":"SUV5","imgUrl":"https:\/\/img.alicdn.com\/imgextra\/i1\/451135386\/TB2wpaxepXXXXbIXXXXXXXXXXXX_!!451135386.jpg_60x60q90.jpg"}      ]
+    },
+    {
+      "adImgUrl": "https://img.alicdn.com/bao/uploaded///img.alicdn.com/bao/uploaded/i4/TB1vGO5IFXXXXb4XXXXXXXXXXXX_!!0-item_pic.jpg_160x160q90.jpg",
+      "adName": "广告名称2",
+      "process": "82%",
+      "target": 10000,
+      "timeRemianing": 10,
+      "onceMoney": 0.5,
+      "productImgList": [
+        {"adname":"SUV1","imgUrl":"https:\/\/img.alicdn.com\/bao\/uploaded\/i3\/TB1l1RHJFXXXXXDXVXXXXXXXXXX_!!0-item_pic.jpg_430x430q90.jpg"},
+        {"adname":"SUV2","imgUrl":"https:\/\/img.alicdn.com\/imgextra\/i1\/451135386\/TB2jtacepXXXXcBXpXXXXXXXXXX_!!451135386.jpg_60x60q90.jpg"},
+        {"adname":"SUV3","imgUrl":"https:\/\/img.alicdn.com\/imgextra\/i2\/451135386\/TB2LtilepXXXXXyXpXXXXXXXXXX_!!451135386.jpg_60x60q90.jpg"},
+        {"adname":"SUV4","imgUrl":"https:\/\/img.alicdn.com\/imgextra\/i1\/451135386\/TB2a.ioepXXXXXEXpXXXXXXXXXX_!!451135386.jpg_60x60q90.jpg"},
+        {"adname":"SUV5","imgUrl":"https:\/\/img.alicdn.com\/imgextra\/i1\/451135386\/TB2wpaxepXXXXbIXXXXXXXXXXXX_!!451135386.jpg_60x60q90.jpg"}      ]
+    },
+    {
+      "adImgUrl": "https://img.alicdn.com/bao/uploaded///img.alicdn.com/bao/uploaded/i4/TB1vGO5IFXXXXb4XXXXXXXXXXXX_!!0-item_pic.jpg_160x160q90.jpg",
+      "adName": "广告名称3",
+      "process": "43%",
+      "target": 10000,
+      "timeRemianing": 10,
+      "onceMoney": 0.5,
+      "productImgList": [
+        {"adname":"SUV1","imgUrl":"https:\/\/img.alicdn.com\/bao\/uploaded\/i3\/TB1l1RHJFXXXXXDXVXXXXXXXXXX_!!0-item_pic.jpg_430x430q90.jpg"},
+        {"adname":"SUV2","imgUrl":"https:\/\/img.alicdn.com\/imgextra\/i1\/451135386\/TB2jtacepXXXXcBXpXXXXXXXXXX_!!451135386.jpg_60x60q90.jpg"},
+        {"adname":"SUV3","imgUrl":"https:\/\/img.alicdn.com\/imgextra\/i2\/451135386\/TB2LtilepXXXXXyXpXXXXXXXXXX_!!451135386.jpg_60x60q90.jpg"},
+        {"adname":"SUV4","imgUrl":"https:\/\/img.alicdn.com\/imgextra\/i1\/451135386\/TB2a.ioepXXXXXEXpXXXXXXXXXX_!!451135386.jpg_60x60q90.jpg"},
+        {"adname":"SUV5","imgUrl":"https:\/\/img.alicdn.com\/imgextra\/i1\/451135386\/TB2wpaxepXXXXbIXXXXXXXXXXXX_!!451135386.jpg_60x60q90.jpg"}      ]
+    },
+    {
+      "adImgUrl": "https://img.alicdn.com/bao/uploaded///img.alicdn.com/bao/uploaded/i4/TB1vGO5IFXXXXb4XXXXXXXXXXXX_!!0-item_pic.jpg_160x160q90.jpg",
+      "adName": "广告名称4",
+      "process": "84%",
+      "target": 10000,
+      "timeRemianing": 10,
+      "onceMoney": 0.5,
+      "productImgList": [
+        {"adname":"SUV1","imgUrl":"https:\/\/img.alicdn.com\/bao\/uploaded\/i3\/TB1l1RHJFXXXXXDXVXXXXXXXXXX_!!0-item_pic.jpg_430x430q90.jpg"},
+        {"adname":"SUV2","imgUrl":"https:\/\/img.alicdn.com\/imgextra\/i1\/451135386\/TB2jtacepXXXXcBXpXXXXXXXXXX_!!451135386.jpg_60x60q90.jpg"},
+        {"adname":"SUV3","imgUrl":"https:\/\/img.alicdn.com\/imgextra\/i2\/451135386\/TB2LtilepXXXXXyXpXXXXXXXXXX_!!451135386.jpg_60x60q90.jpg"},
+        {"adname":"SUV4","imgUrl":"https:\/\/img.alicdn.com\/imgextra\/i1\/451135386\/TB2a.ioepXXXXXEXpXXXXXXXXXX_!!451135386.jpg_60x60q90.jpg"},
+        {"adname":"SUV5","imgUrl":"https:\/\/img.alicdn.com\/imgextra\/i1\/451135386\/TB2wpaxepXXXXbIXXXXXXXXXXXX_!!451135386.jpg_60x60q90.jpg"}      ]
+    },
+    {
+      "adImgUrl": "https://img.alicdn.com/bao/uploaded///img.alicdn.com/bao/uploaded/i4/TB1vGO5IFXXXXb4XXXXXXXXXXXX_!!0-item_pic.jpg_160x160q90.jpg",
+      "adName": "广告名称5",
+      "process": "85%",
+      "target": 10000,
+      "timeRemianing": 10,
+      "onceMoney": 0.5,
+      "productImgList": [
+        {"adname":"SUV1","imgUrl":"https:\/\/img.alicdn.com\/bao\/uploaded\/i3\/TB1l1RHJFXXXXXDXVXXXXXXXXXX_!!0-item_pic.jpg_430x430q90.jpg"},
+        {"adname":"SUV2","imgUrl":"https:\/\/img.alicdn.com\/imgextra\/i1\/451135386\/TB2jtacepXXXXcBXpXXXXXXXXXX_!!451135386.jpg_60x60q90.jpg"},
+        {"adname":"SUV3","imgUrl":"https:\/\/img.alicdn.com\/imgextra\/i2\/451135386\/TB2LtilepXXXXXyXpXXXXXXXXXX_!!451135386.jpg_60x60q90.jpg"},
+        {"adname":"SUV4","imgUrl":"https:\/\/img.alicdn.com\/imgextra\/i1\/451135386\/TB2a.ioepXXXXXEXpXXXXXXXXXX_!!451135386.jpg_60x60q90.jpg"},
+        {"adname":"SUV5","imgUrl":"https:\/\/img.alicdn.com\/imgextra\/i1\/451135386\/TB2wpaxepXXXXbIXXXXXXXXXXXX_!!451135386.jpg_60x60q90.jpg"}      ]
+    },
+    {
+      "adImgUrl": "https://img.alicdn.com/bao/uploaded///img.alicdn.com/bao/uploaded/i4/TB1vGO5IFXXXXb4XXXXXXXXXXXX_!!0-item_pic.jpg_160x160q90.jpg",
+      "adName": "广告名称6",
+      "process": "86%",
+      "target": 10000,
+      "timeRemianing": 10,
+      "onceMoney": 0.5,
+      "productImgList": [
+        {"adname":"SUV1","imgUrl":"https:\/\/img.alicdn.com\/bao\/uploaded\/i3\/TB1l1RHJFXXXXXDXVXXXXXXXXXX_!!0-item_pic.jpg_430x430q90.jpg"},
+        {"adname":"SUV2","imgUrl":"https:\/\/img.alicdn.com\/imgextra\/i1\/451135386\/TB2jtacepXXXXcBXpXXXXXXXXXX_!!451135386.jpg_60x60q90.jpg"},
+        {"adname":"SUV3","imgUrl":"https:\/\/img.alicdn.com\/imgextra\/i2\/451135386\/TB2LtilepXXXXXyXpXXXXXXXXXX_!!451135386.jpg_60x60q90.jpg"},
+        {"adname":"SUV4","imgUrl":"https:\/\/img.alicdn.com\/imgextra\/i1\/451135386\/TB2a.ioepXXXXXEXpXXXXXXXXXX_!!451135386.jpg_60x60q90.jpg"},
+        {"adname":"SUV5","imgUrl":"https:\/\/img.alicdn.com\/imgextra\/i1\/451135386\/TB2wpaxepXXXXbIXXXXXXXXXXXX_!!451135386.jpg_60x60q90.jpg"}      ]
+    },
+    {
+      "adImgUrl": "https://img.alicdn.com/bao/uploaded///img.alicdn.com/bao/uploaded/i4/TB1vGO5IFXXXXb4XXXXXXXXXXXX_!!0-item_pic.jpg_160x160q90.jpg",
+      "adName": "广告名称7",
+      "process": "77%",
+      "target": 10000,
+      "timeRemianing": 10,
+      "onceMoney": 0.5,
+      "productImgList": [
+        {"adname":"SUV1","imgUrl":"https:\/\/img.alicdn.com\/bao\/uploaded\/i3\/TB1l1RHJFXXXXXDXVXXXXXXXXXX_!!0-item_pic.jpg_430x430q90.jpg"},
+        {"adname":"SUV2","imgUrl":"https:\/\/img.alicdn.com\/imgextra\/i1\/451135386\/TB2jtacepXXXXcBXpXXXXXXXXXX_!!451135386.jpg_60x60q90.jpg"},
+        {"adname":"SUV3","imgUrl":"https:\/\/img.alicdn.com\/imgextra\/i2\/451135386\/TB2LtilepXXXXXyXpXXXXXXXXXX_!!451135386.jpg_60x60q90.jpg"},
+        {"adname":"SUV4","imgUrl":"https:\/\/img.alicdn.com\/imgextra\/i1\/451135386\/TB2a.ioepXXXXXEXpXXXXXXXXXX_!!451135386.jpg_60x60q90.jpg"},
+        {"adname":"SUV5","imgUrl":"https:\/\/img.alicdn.com\/imgextra\/i1\/451135386\/TB2wpaxepXXXXbIXXXXXXXXXXXX_!!451135386.jpg_60x60q90.jpg"}      ]
+    },
+    {
+      "adImgUrl": "https://img.alicdn.com/bao/uploaded///img.alicdn.com/bao/uploaded/i4/TB1vGO5IFXXXXb4XXXXXXXXXXXX_!!0-item_pic.jpg_160x160q90.jpg",
+      "adName": "广告名称8",
+      "process": "28%",
+      "target": 10000,
+      "timeRemianing": 10,
+      "onceMoney": 0.5,
+      "productImgList": [
+        {"adname":"SUV1","imgUrl":"https:\/\/img.alicdn.com\/bao\/uploaded\/i3\/TB1l1RHJFXXXXXDXVXXXXXXXXXX_!!0-item_pic.jpg_430x430q90.jpg"},
+        {"adname":"SUV2","imgUrl":"https:\/\/img.alicdn.com\/imgextra\/i1\/451135386\/TB2jtacepXXXXcBXpXXXXXXXXXX_!!451135386.jpg_60x60q90.jpg"},
+        {"adname":"SUV3","imgUrl":"https:\/\/img.alicdn.com\/imgextra\/i2\/451135386\/TB2LtilepXXXXXyXpXXXXXXXXXX_!!451135386.jpg_60x60q90.jpg"},
+        {"adname":"SUV4","imgUrl":"https:\/\/img.alicdn.com\/imgextra\/i1\/451135386\/TB2a.ioepXXXXXEXpXXXXXXXXXX_!!451135386.jpg_60x60q90.jpg"},
+        {"adname":"SUV5","imgUrl":"https:\/\/img.alicdn.com\/imgextra\/i1\/451135386\/TB2wpaxepXXXXbIXXXXXXXXXXXX_!!451135386.jpg_60x60q90.jpg"}      ]
+    },
+    {
+      "adImgUrl": "https://img.alicdn.com/bao/uploaded///img.alicdn.com/bao/uploaded/i4/TB1vGO5IFXXXXb4XXXXXXXXXXXX_!!0-item_pic.jpg_160x160q90.jpg",
+      "adName": "广告名称9",
+      "process": "19%",
+      "target": 10000,
+      "timeRemianing": 10,
+      "onceMoney": 0.5,
+      "productImgList": [
+        {"adname":"SUV1","imgUrl":"https:\/\/img.alicdn.com\/bao\/uploaded\/i3\/TB1l1RHJFXXXXXDXVXXXXXXXXXX_!!0-item_pic.jpg_430x430q90.jpg"},
+        {"adname":"SUV2","imgUrl":"https:\/\/img.alicdn.com\/imgextra\/i1\/451135386\/TB2jtacepXXXXcBXpXXXXXXXXXX_!!451135386.jpg_60x60q90.jpg"},
+        {"adname":"SUV3","imgUrl":"https:\/\/img.alicdn.com\/imgextra\/i2\/451135386\/TB2LtilepXXXXXyXpXXXXXXXXXX_!!451135386.jpg_60x60q90.jpg"},
+        {"adname":"SUV4","imgUrl":"https:\/\/img.alicdn.com\/imgextra\/i1\/451135386\/TB2a.ioepXXXXXEXpXXXXXXXXXX_!!451135386.jpg_60x60q90.jpg"},
+        {"adname":"SUV5","imgUrl":"https:\/\/img.alicdn.com\/imgextra\/i1\/451135386\/TB2wpaxepXXXXbIXXXXXXXXXXXX_!!451135386.jpg_60x60q90.jpg"}
+      ]
+    },
+    {
+      "adImgUrl": "https://img.alicdn.com/bao/uploaded///img.alicdn.com/bao/uploaded/i4/TB1vGO5IFXXXXb4XXXXXXXXXXXX_!!0-item_pic.jpg_160x160q90.jpg",
+      "adName": "广告名称10",
+      "process": "80%",
+      "target": 10000,
+      "timeRemianing": 10,
+      "onceMoney": 0.5,
+      "productImgList": [
+        {"adname":"SUV1","imgUrl":"https:\/\/img.alicdn.com\/bao\/uploaded\/i3\/TB1l1RHJFXXXXXDXVXXXXXXXXXX_!!0-item_pic.jpg_430x430q90.jpg"},
+        {"adname":"SUV2","imgUrl":"https:\/\/img.alicdn.com\/imgextra\/i1\/451135386\/TB2jtacepXXXXcBXpXXXXXXXXXX_!!451135386.jpg_60x60q90.jpg"},
+        {"adname":"SUV3","imgUrl":"https:\/\/img.alicdn.com\/imgextra\/i2\/451135386\/TB2LtilepXXXXXyXpXXXXXXXXXX_!!451135386.jpg_60x60q90.jpg"},
+        {"adname":"SUV4","imgUrl":"https:\/\/img.alicdn.com\/imgextra\/i1\/451135386\/TB2a.ioepXXXXXEXpXXXXXXXXXX_!!451135386.jpg_60x60q90.jpg"},
+        {"adname":"SUV5","imgUrl":"https:\/\/img.alicdn.com\/imgextra\/i1\/451135386\/TB2wpaxepXXXXbIXXXXXXXXXXXX_!!451135386.jpg_60x60q90.jpg"}      ]
+    }
+  ]
+};
                 ReactDOM.render(<AdList data={data.result}/>,document.querySelector('#container'));
                 //console.log(data.result)
-            }
-        });
+//          }
+//      });
 
     },
     /************点击进入榜单*****************/
     /************点击进入榜单*****************/
     ranking:function(){
+    	//alert('')
         localStorage.setItem('currentPage','ranking');
-        $.ajax({
-           url:'./json/todayRanking.json',
-            type:'get',
-            success:function(data){
-                //console.log(data);
-                ReactDOM.render(<TodayRanking data={data.result}/>,document.querySelector('#body'));
+//      $.ajax({
+//         url:'./json/todayRanking.json',
+//          type:'get',
+//          success:function(data){
+                //alert(data);
+                ReactDOM.render(<TodayRanking />,document.querySelector('#body'));
 
-            }
-        });
+//          }
+//      });
     },
     /************点击进入个人资料*****************/
     /************点击进入个人资料*****************/

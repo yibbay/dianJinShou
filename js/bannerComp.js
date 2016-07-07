@@ -75,6 +75,7 @@ var BannerItem = React.createClass({
                prevButton:'.swiper-button-prev',
                nextButton:'.swiper-button-next',
                autoplay:2000,
+               loop:true
 
            })
        }

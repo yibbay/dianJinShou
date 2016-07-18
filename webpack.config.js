@@ -19,7 +19,11 @@ module.exports = {
 		loaders:[
 		{
 			test:/\.js$/,
-			loader:'jsx-loader'//指的是我们使用具体的加载器
+			loader:'jsx-loader',//指的是我们使用具体的加载器
+			// {test: /\.js$/, loader: "babel"},
+     // {test: /\.css$/, loader: "style!css"},
+      //{test: /\.(jpg|png)$/, loader: "url?limit=8192"},
+      //{test: /\.scss$/, loader: "style!css!sass"}
 		},
 //		{
 //			test:/\.css$/,
